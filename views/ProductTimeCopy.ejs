@@ -1,0 +1,76 @@
+<html>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet"/>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+    <style>
+
+        DIV.table
+        {
+            display:table;
+        }
+        FORM.tr, DIV.tr
+        {
+            display:table-row;
+        }
+        SPAN.td
+        {
+            display:table-cell;
+        }
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div style="width : 15% ; float:left">
+    <h4>Order Number</h4>
+</div>
+<div style="width : 15% ; float:left">
+    <h4>Start Time</h4>
+</div>
+<div style="width : 15% ; float:left">
+    <h4>End Time</h4>
+</div>
+<div style="width : 15% ; float:left">
+    <h4>Lead Time(sec)</h4>
+</div>
+
+<div class="table">
+
+
+            <% print.forEach(function (orders) { %>
+            <div class="tr">
+                <span style="width : 15% ; float:left" class="td"><%= orders.ONo %></span>
+                <span style="width : 15% ; float:left" class="td"><%= orders.Start %></span>
+                <span style="width : 15% ; float:left" class="td"><%= orders.End %></span>
+                <span style="width : 15% ; float:left" class="td"><%= orders.realtime %></span>
+               <!-- <td><%= orders.Start %></td>
+                <td><%= orders.End %></td>
+                <td><%= orders.realtime %></td>-->
+            </div>
+
+
+
+                    <form style="width : 15% ; float:left" class="tr" method="post" action="/ProductTime/Details">
+                        <span class="td">
+                       <!-- <input type="submit" value=<%= orders.ONo %>  name="ordernumber">-->
+                         <input class="ss" style="background: none;border: none;color: #418cea;" type="submit" value="details">
+                          <input type="hidden" value= <%= orders.ONo %>  name="ordernumber">
+                        </span>
+                    </form>
+
+
+
+            <% }) %>
+        </div>
+</body>
+
+
+</html>
+
+
